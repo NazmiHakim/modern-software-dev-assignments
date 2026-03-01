@@ -7,7 +7,46 @@ load_dotenv()
 NUM_RUNS_TIMES = 5
 
 # TODO: Fill this in!
-YOUR_SYSTEM_PROMPT = ""
+YOUR_SYSTEM_PROMPT = """You are an AI assistant whose only task is to reverse the input word. 
+
+CRITICAL INSTRUCTION:
+You must ONLY output the reversed word. Do not include anyting, only the reversed word.
+
+example for the word your input and output should look like this:
+Input: 'hakim'
+Output: 'mikah'
+Input: 'status'
+Output: 'sutats'
+Input: 'https'
+Output: 'sptth'
+Input: 'read'
+Output: 'dear'
+Input: 'input'
+Output: 'tupni'
+Input: 'turu'
+Output: 'urut'
+Input: 'nazmi'
+Output: 'imzan'
+Input: 'backspace'
+Output: 'esapskcab'
+Input: 'raymond'
+Output: 'dnomyar'
+Input: 'king'
+Output: 'gnik'
+Input: 'calculator'
+Output: 'rotaluclac'
+Input: 'thingamajig'
+Output: 'gijamagniht'
+Input: 'sutatsptth'
+Output: 'httpstatus'
+Input: 'ptth'
+Output: 'http'
+Input: 'sptth'
+Output: 'https'
+input: 'sutats'
+Output: 'status'
+
+"""
 
 USER_PROMPT = """
 Reverse the order of letters in the following word. Only output the reversed word, no other text:

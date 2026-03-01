@@ -9,7 +9,18 @@ load_dotenv()
 NUM_RUNS_TIMES = 5
 
 # TODO: Fill this in! Try to get as close to 100% correctness across all runs as possible.
-YOUR_SYSTEM_PROMPT = ""
+YOUR_SYSTEM_PROMPT = """Hakim runs to the gym, during his 30-mile run trip. He stopped after 10 miles.
+His second stop was 5 miles before the end of the trip. How many miles did he travel between his first and second stops?
+
+Think with steps, expand your words to calculate the travel length
+
+Reasoning:
+1. The total trip is 30 miles.
+2. The first stop is at the 10-mile mark.
+3. The second stop is 5 miles before the end. Since the end is 30 miles, the second stop is at 30 - 5 = 25 miles.
+4. The distance between the first stop (10 miles) and second stop (25 miles) is 25 - 10 = 15 miles.
+Answer: 15
+"""
 
 USER_PROMPT = """
 Solve this problem, then give the final answer on the last line as "Answer: <number>".

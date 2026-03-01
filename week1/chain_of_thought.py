@@ -8,7 +8,11 @@ load_dotenv()
 NUM_RUNS_TIMES = 5
 
 # TODO: Fill this in!
-YOUR_SYSTEM_PROMPT = ""
+YOUR_SYSTEM_PROMPT = """You are a mathematical problem solver. 
+Think step-by-step to arrive at the solution, but keep your reasoning extremely brief and concise. Do not write long paragraphs.
+Only after you have solved the problem, output the final result on a new line using exactly this format: 
+Answer: <number>
+"""
 
 
 USER_PROMPT = """

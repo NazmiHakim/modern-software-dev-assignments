@@ -70,7 +70,7 @@ TOOL_REGISTRY: Dict[str, Callable[..., str]] = {
 # ==========================
 
 # TODO: Fill this in!
-YOUR_SYSTEM_PROMPT = ""
+YOUR_SYSTEM_PROMPT = "what is 2 + 2? answer with python code with tool calls"
 
 
 def resolve_path(p: str) -> str:
