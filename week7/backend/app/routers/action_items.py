@@ -36,7 +36,11 @@ def list_items(
 
 @router.post("/", response_model=ActionItemRead, status_code=201)
 def create_item(payload: ActionItemCreate, db: Session = Depends(get_db)) -> ActionItemRead:
-    item = ActionItem(description=payload.description, completed=False)
+    item = ActionItem(
+        description=payload.description, 
+        completed=False,
+        note_id=payload.note_id
+    )
     db.add(item)
     db.flush()
     db.refresh(item)
@@ -64,6 +68,8 @@ def patch_item(item_id: int, payload: ActionItemPatch, db: Session = Depends(get
         item.description = payload.description
     if payload.completed is not None:
         item.completed = payload.completed
+    if payload.note_id is not None:
+        item.note_id = payload.note_id
     db.add(item)
     db.flush()
     db.refresh(item)

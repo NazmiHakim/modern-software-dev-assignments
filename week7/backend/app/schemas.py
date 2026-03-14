@@ -1,11 +1,17 @@
 from datetime import datetime
+from pydantic import BaseModel, Field
 
-from pydantic import BaseModel
 
+class ActionItemRead(BaseModel):
+    id: int
+    description: str
+    completed: bool
+    note_id: int | None = None
+    created_at: datetime
+    updated_at: datetime
 
-class NoteCreate(BaseModel):
-    title: str
-    content: str
+    class Config:
+        from_attributes = True
 
 
 class NoteRead(BaseModel):
@@ -14,33 +20,30 @@ class NoteRead(BaseModel):
     content: str
     created_at: datetime
     updated_at: datetime
+    action_items: list[ActionItemRead] = []
 
     class Config:
         from_attributes = True
+
+
+class NoteCreate(BaseModel):
+    title: str = Field(..., min_length=3, max_length=200)
+    content: str = Field(..., min_length=3)
 
 
 class NotePatch(BaseModel):
-    title: str | None = None
-    content: str | None = None
+    title: str | None = Field(None, min_length=3, max_length=200)
+    content: str | None = Field(None, min_length=3)
 
 
 class ActionItemCreate(BaseModel):
-    description: str
-
-
-class ActionItemRead(BaseModel):
-    id: int
-    description: str
-    completed: bool
-    created_at: datetime
-    updated_at: datetime
-
-    class Config:
-        from_attributes = True
+    description: str = Field(..., min_length=3)
+    note_id: int | None = None
 
 
 class ActionItemPatch(BaseModel):
-    description: str | None = None
+    description: str | None = Field(None, min_length=3)
     completed: bool | None = None
+    note_id: int | None = None
 
 

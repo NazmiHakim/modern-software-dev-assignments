@@ -36,6 +36,12 @@ def client() -> Generator[TestClient, None, None]:
     with TestClient(app) as c:
         yield c
 
-    os.unlink(db_path)
+    # Release file handles for Windows
+    engine.dispose()
+    
+    try:
+        os.unlink(db_path)
+    except PermissionError:
+        pass # Fallback if still locked
 
 
